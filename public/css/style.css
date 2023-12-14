@@ -1,3 +1,8 @@
+
+img {
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
 .gambar-produk {
   object-fit: cover;
   object-position: center;
