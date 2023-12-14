@@ -33,6 +33,11 @@ class Pesanan extends Migration
         'type' => 'DECIMAL',
         'constraint' => '10,2',
       ],
+      'tipe_pengiriman' => [
+        'type' => 'ENUM',
+        'constraint' => ['instant', 'next-day', 'regular'],
+        'default' => 'instant',
+      ],
       'created_at' => [
         'type' => 'DATETIME',
         'null' => true,
