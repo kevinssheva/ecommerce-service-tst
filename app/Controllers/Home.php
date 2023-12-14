@@ -13,7 +13,10 @@ class Home extends BaseController
   }
   public function index(): string
   {
-    dd($this->produkModel->findAll());
-    return view('home/page');
+    $data = [
+      'title' => 'Daftar Produk',
+      'produk' => $this->produkModel->findAll()
+    ];
+    return view('home/page', $data);
   }
 }
