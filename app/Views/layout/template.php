@@ -23,7 +23,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">History Pemesanan</a>
+            <a class="nav-link" href="<?php echo base_url('/orderHistory')?>">History Pemesanan</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/logout')?>">Logout</a>
