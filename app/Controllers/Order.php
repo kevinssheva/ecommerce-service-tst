@@ -40,4 +40,10 @@ class Order extends BaseController
 
     return redirect()->to('/produk/3');
   }
+
+  public function orderAPI()
+  {
+    $pesanan = $this->pesananModel->findAll();
+    return $this->response->setJSON($pesanan);
+  }
 }
