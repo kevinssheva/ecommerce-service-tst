@@ -9,33 +9,6 @@
   <link rel='stylesheet' href='/css/style.css' />
 </head>
 
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">E-commerce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">History Pemesanan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/logout')?>">Logout</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          Hi <?php echo session()->get('username'); ?> !
-        </span>
-      </div>
-    </div>
-  </nav>
-
   <?= $this->renderSection('content'); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
