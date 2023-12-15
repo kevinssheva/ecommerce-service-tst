@@ -31,7 +31,7 @@ class Order extends BaseController
       return redirect()->to('/produk/3')->withInput();
     }
     $this->pesananModel->save([
-      'user_id' => 1,
+      'user_id' => session()->get('user_id'),
       'produk_id' => $this->request->getVar('id'),
       'jumlah_produk' => $this->request->getVar('quantity'),
       'tipe_pengiriman' => $this->request->getVar('tipe-pengiriman'),
