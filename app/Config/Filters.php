@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\LoginFilter;
+use App\Filters\PageFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -25,6 +27,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'pageFilter' => PageFilter::class,
+        'loginFilter' => LoginFilter::class,
     ];
 
     /**
