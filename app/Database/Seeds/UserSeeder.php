@@ -12,6 +12,7 @@ class UserSeeder extends Seeder
     $data = [
       [
         'username' => 'amjad',
+        'nama' => 'Amjad Adhie',
         'password' => 'amjadjugabiargampang',
         'alamat' => 'Jl. Tubagus Ismail XVI',
         'no_telepon' => '081219908333',
@@ -20,6 +21,7 @@ class UserSeeder extends Seeder
       ],
       [
         'username' => 'iskandar',
+        'nama' => 'Iskandar Zulkarnaen',
         'password' => 'skandarrrr',
         'alamat' => 'Jl. Cisitu Ismail VI',
         'no_telepon' => '081392902233',

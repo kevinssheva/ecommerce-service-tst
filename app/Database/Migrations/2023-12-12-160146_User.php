@@ -19,6 +19,10 @@ class User extends Migration
         'type' => 'VARCHAR',
         'constraint' => 100,
       ],
+      'nama' => [
+        'type' => 'VARCHAR',
+        'constraint' => 100,
+      ],
       'password' => [
         'type' => 'VARCHAR',
         'constraint' => 255,

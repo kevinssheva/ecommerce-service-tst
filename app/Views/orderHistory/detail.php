@@ -62,7 +62,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title text-base font-semibold leading-4 text-gray-800">Shipping Address</h5>
-                                    <p class="card-text text-sm leading-5 text-gray-600"><?php echo session()->get('alamat'); ?></p>
+                                    <p class="card-text text-sm leading-5 text-gray-600"><?= $pesanan['alamat']; ?></p>
                                 </div>
                             </div>
                         </div>

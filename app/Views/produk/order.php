@@ -80,15 +80,15 @@
         <p class="text-primary">*ganti jika diperlukan</p>
         <div class="mb-2">
           <label for="nama" class="form-label">Nama</label>
-          <input type="email" class="form-control" id="nama" name="nama" placeholder="Masukkan nama penerima">
+          <input type="text" required class="form-control" id="nama" name="nama" placeholder="Masukkan nama penerima" value="<?php echo session()->get('name'); ?>">
         </div>
         <div class="mb-2">
-          <label for="noTelepon" class="form-label">No Telepon</label>
-          <input type="email" class="form-control" id="noTelepon" name="telepon" placeholder="Masukkan nomor telepon">
+          <label for="telepon" class="form-label">No Telepon</label>
+          <input type="text" required class="form-control" id="telepon" name="telepon" placeholder="Masukkan nomor telepon" value="<?php echo session()->get('telepon'); ?>">
         </div>
         <div class="mb-2">
           <label for="alamat" class="form-label">Alamat</label>
-          <input type="email" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat tujuan">
+          <input type="text" required class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat tujuan" value="<?php echo session()->get('alamat'); ?>">
         </div>
       </div>
     </div>

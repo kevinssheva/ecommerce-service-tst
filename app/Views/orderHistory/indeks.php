@@ -16,7 +16,7 @@
                     ?>
                     <div class="d-flex flex-row justify-content-start align-items-start border border-gray-200 w-100">
                         <div class="card mx-3 my-1" style="width: 18rem ">
-                            <img src="./img/<?= $matchingProduct['gambar']; ?>" alt="<?= $matchingProduct['nama']; ?>" style="width: 100%; aspect-ratio: 4/3; object-fit: cover;">
+                            <img src="/img/<?= $matchingProduct['gambar']; ?>" alt="<?= $matchingProduct['nama']; ?>" style="width: 100%; aspect-ratio: 4/3; object-fit: cover;">
                         </div>
                         <div class="d-flex flex-column justify-content-start align-items-start w-100 p-4">
                             <div class="d-flex justify-content-between align-items-start w-100">

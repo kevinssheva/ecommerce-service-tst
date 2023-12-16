@@ -38,6 +38,18 @@ class Pesanan extends Migration
         'constraint' => ['instant', 'next-day', 'regular'],
         'default' => 'instant',
       ],
+      'nama_penerima' => [
+        'type' => 'VARCHAR',
+        'constraint' => 100,
+      ],
+      'telepon' => [
+        'type' => 'VARCHAR',
+        'constraint' => 20,
+      ],
+      'alamat' => [
+        'type' => 'VARCHAR',
+        'constraint' => 255,
+      ],
       'created_at' => [
         'type' => 'DATETIME',
         'null' => true,

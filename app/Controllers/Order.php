@@ -28,14 +28,19 @@ class Order extends BaseController
       $validation = \Config\Services::validation();
       // dd($validation);
       // return redirect()->to('/produk/3')->withInput()->with('validation', $validation);
-      return redirect()->to('/produk/3')->withInput();
+      return redirect()->back()->withInput();
     }
+
+    // dd($this->request->getVar());
     $this->pesananModel->save([
       'user_id' => session()->get('user_id'),
       'produk_id' => $this->request->getVar('id'),
       'jumlah_produk' => $this->request->getVar('quantity'),
       'tipe_pengiriman' => $this->request->getVar('tipe-pengiriman'),
-      'total_harga' => $this->request->getVar('total-belanja')
+      'total_harga' => $this->request->getVar('total-belanja'),
+      'nama_penerima' => $this->request->getVar('nama'),
+      'telepon' => $this->request->getVar('telepon'),
+      'alamat' => $this->request->getVar('alamat'),
     ]);
 
     return redirect()->to('/orderHistory');
@@ -43,10 +48,7 @@ class Order extends BaseController
 
   public function orderAPI()
   {
-    $pesanan = $this->pesananModel
-      ->join('user', 'pesanan.user_id = user.id', 'left')
-      ->join('produk', 'pesanan.produk_id = produk.id', 'left')
-      ->findAll();
+    $pesanan = $this->pesananModel->findAll();
 
     return $this->response->setJSON($pesanan);
   }
