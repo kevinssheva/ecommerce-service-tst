@@ -16,6 +16,8 @@ class PesananModel extends Model
             return $this->findAll();
         }
 
-        return $this->where(['id_pesanan' => $id_pesanan])->first();
+        $result= $this->where(['id_pesanan' => $id_pesanan])->first();
+
+        return $result;
     }
 }

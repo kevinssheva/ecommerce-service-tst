@@ -28,8 +28,8 @@ class History extends BaseController
 
   public function detail($id_pesanan)
     {
-        $pesanan = $this->pesananModel->getHistory($id_pesanan);
-
+      $pesanan = $this->pesananModel->getHistory($id_pesanan);
+      
         $data = [
             'title' => 'detail history pesanan',
             'pesanan' => $pesanan,
