@@ -26,4 +26,16 @@ class History extends BaseController
     return view('orderHistory/indeks',$data);
   }
 
+  public function detail($id_pesanan)
+    {
+        $pesanan = $this->pesananModel->getHistory($id_pesanan);
+
+        $data = [
+            'title' => 'detail history pesanan',
+            'pesanan' => $pesanan,
+            'produk' => $this->produkModel->findAll()
+        ];
+        return view('orderHistory/detail', $data);
+    }
+
 }
