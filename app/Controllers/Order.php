@@ -38,12 +38,16 @@ class Order extends BaseController
       'total_harga' => $this->request->getVar('total-belanja')
     ]);
 
-    return redirect()->to('/produk/3');
+    return redirect()->to('/orderHistory');
   }
 
   public function orderAPI()
   {
-    $pesanan = $this->pesananModel->findAll();
+    $pesanan = $this->pesananModel
+      ->join('user', 'pesanan.user_id = user.id', 'left')
+      ->join('produk', 'pesanan.produk_id = produk.id', 'left')
+      ->findAll();
+
     return $this->response->setJSON($pesanan);
   }
 }

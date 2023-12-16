@@ -30,9 +30,9 @@
       </div>
     </div>
     <div class="row mb-5">
-      <h2 class="fw-bold">Pengiriman</h2>
-      <p class="text-primary">*pilih salah satu pengiriman yang ingin digunakan</p>
-      <div class="col">
+      <div class="col-6">
+        <h2 class="fw-bold">Pengiriman</h2>
+        <p class="text-primary">*pilih salah satu pengiriman yang ingin digunakan</p>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -73,6 +73,22 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col">
+        <h2 class="fw-bold">Informasi Penerima</h2>
+        <p class="text-primary">*ganti jika diperlukan</p>
+        <div class="mb-2">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="email" class="form-control" id="nama" name="nama" placeholder="Masukkan nama penerima">
+        </div>
+        <div class="mb-2">
+          <label for="noTelepon" class="form-label">No Telepon</label>
+          <input type="email" class="form-control" id="noTelepon" name="telepon" placeholder="Masukkan nomor telepon">
+        </div>
+        <div class="mb-2">
+          <label for="alamat" class="form-label">Alamat</label>
+          <input type="email" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat tujuan">
         </div>
       </div>
     </div>
