@@ -117,10 +117,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="column">
+      <div class="col d-flex justify-content-end">
         <input id="tipe-pengiriman" name="tipe-pengiriman" value="" class="form-control" type="hidden">
         <input id="id" name="id" value="<?= $produk['id']; ?>" type="hidden">
-        <button type="submit" class="btn btn-primary">Pesan</button>
+        <button type="submit" class="btn btn-primary px-5 py-2 fs-5 fw-semibold">Pesan</button>
       </div>
     </div>
   </form>
