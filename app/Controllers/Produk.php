@@ -37,4 +37,10 @@ class Produk extends BaseController
     $produk = $this->produkModel->findAll();
     return $this->response->setJSON($produk);
   }
+
+  public function produkDetailAPI($id = 0)
+  {
+    $produk = $this->produkModel->find($id);
+    return $this->response->setJSON($produk);
+  }
 }

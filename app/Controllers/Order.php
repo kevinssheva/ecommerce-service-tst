@@ -51,4 +51,11 @@ class Order extends BaseController
 
     return $this->response->setJSON($pesanan);
   }
+
+  public function orderDetailAPI($id_pesanan = 0)
+  {
+    $pesanan = $this->pesananModel->find($id_pesanan);
+
+    return $this->response->setJSON($pesanan);
+  }
 }
