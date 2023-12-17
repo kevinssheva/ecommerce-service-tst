@@ -27,7 +27,8 @@ class Produk extends BaseController
     $data = [
       'title' => 'Order Produk',
       'produk' => $produk,
-      'validation_errors' => session()->getFlashdata('validation_errors') ?? ''
+      'validation_errors' => session()->getFlashdata('validation_errors') ?? '',
+      'notifikasi' => $this->notifikasiModel->getNotifikasiByUserId(session()->get('user_id'))
     ];
     return view('produk/order', $data);
   }

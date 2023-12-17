@@ -21,21 +21,22 @@ class History extends BaseController
     $data = [
       'title' => 'Daftar Produk',
       'orderHistory' => $this->pesananModel->findAll(),
-      'produk' => $this->produkModel->findAll()
+      'produk' => $this->produkModel->findAll(),
+      'notifikasi' => $this->notifikasiModel->getNotifikasiByUserId(session()->get('user_id'))
     ];
-    return view('orderHistory/indeks',$data);
+    return view('orderHistory/indeks', $data);
   }
 
   public function detail($id_pesanan)
-    {
-      $pesanan = $this->pesananModel->getHistory($id_pesanan);
-      
-        $data = [
-            'title' => 'detail history pesanan',
-            'pesanan' => $pesanan,
-            'produk' => $this->produkModel->findAll()
-        ];
-        return view('orderHistory/detail', $data);
-    }
+  {
+    $pesanan = $this->pesananModel->getHistory($id_pesanan);
 
+    $data = [
+      'title' => 'detail history pesanan',
+      'pesanan' => $pesanan,
+      'produk' => $this->produkModel->findAll(),
+      'notifikasi' => $this->notifikasiModel->getNotifikasiByUserId(session()->get('user_id'))
+    ];
+    return view('orderHistory/detail', $data);
+  }
 }

@@ -17,3 +17,4 @@ $routes->get('/api/order', 'Order::orderAPI');
 $routes->get('/api/order/(:num)', 'Order::orderDetailAPI/$1');
 $routes->get('/orderHistory', 'History::index', ['filter' => 'pageFilter']);
 $routes->get('/orderHistory/(:segment)', 'History::detail/$1', ['filter' => 'pageFilter']);
+$routes->post('/notifikasi/create', 'NotifikasiAPI::create');

@@ -15,7 +15,8 @@ class Home extends BaseController
   {
     $data = [
       'title' => 'Daftar Produk',
-      'produk' => $this->produkModel->findAll()
+      'produk' => $this->produkModel->findAll(),
+      'notifikasi' => $this->notifikasiModel->getNotifikasiByUserId(session()->get('user_id'))
     ];
     return view('home/page', $data);
   }
