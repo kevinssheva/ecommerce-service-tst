@@ -7,7 +7,6 @@
     <div class="row mb-5">
       <div class="col">
         <h2 class="fw-bold">Pesanan</h2>
-        <?= $validation->listErrors(); ?>
         <div class="card mb-3 rounded overflow-hidden my-3">
           <div class="row g-0">
             <div class="col-md-3 bg-black">
@@ -31,7 +30,14 @@
     </div>
     <div class="row mb-5">
       <div class="col-6">
-        <h2 class="fw-bold">Pengiriman</h2>
+        <div class="d-flex align-items-center">
+          <div class="me-2">
+            <h2 class="fw-bold">Pengiriman</h2>
+          </div>
+          <?php if (isset($validation_errors['tipe-pengiriman'])) : ?>
+            <div class="border border-danger border-3 rounded px-3 text-danger fw-semibold d-inline-block">Harap pilih pengiriman</div>
+          <?php endif; ?>
+        </div>
         <p class="text-primary">*pilih salah satu pengiriman yang ingin digunakan</p>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
@@ -112,7 +118,7 @@
     </div>
     <div class="row">
       <div class="column">
-        <input id="tipe-pengiriman" name="tipe-pengiriman" value="" class="form-control <?= ($validation->hasError('tipe-pengiriman')) ? 'is-invalid' : ''; ?>" type="hidden">
+        <input id="tipe-pengiriman" name="tipe-pengiriman" value="" class="form-control" type="hidden">
         <input id="id" name="id" value="<?= $produk['id']; ?>" type="hidden">
         <button type="submit" class="btn btn-primary">Pesan</button>
       </div>

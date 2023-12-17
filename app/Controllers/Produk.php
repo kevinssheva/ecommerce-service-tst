@@ -27,7 +27,7 @@ class Produk extends BaseController
     $data = [
       'title' => 'Order Produk',
       'produk' => $produk,
-      'validation' => $validation,
+      'validation_errors' => session()->getFlashdata('validation_errors') ?? ''
     ];
     return view('produk/order', $data);
   }

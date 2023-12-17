@@ -4,8 +4,13 @@
 <div class="container py-4">
     <div class="row justify-content-center align-items-center mb-5">
         <div class="col-lg-9">
-            <h3 class="text-3xl xl:text-4xl font-semibold leading-7 xl:leading-9 text-gray-800">Order History</h3>
-            <div class="d-flex justify-content-center align-items-center w-100 mt-8 flex-column space-y-4">
+            <h2 class="fw-bold mb-3">Order History</h2>
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success my-2" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div>
+            <?php endif; ?>
+            <div class="d-flex justify-content-center align-items-center w-100 mt-2 flex-column space-y-4">
                 <?php foreach ($orderHistory as $o) : ?>
                     <?php
                     $produk_id = $o["produk_id"];
@@ -14,11 +19,10 @@
                     });
                     $matchingProduct = reset($matchingProduct);
                     ?>
-                    <div class="d-flex flex-row justify-content-start align-items-start border border-gray-200 w-100">
-                        <div class="card mx-3 my-1" style="width: 18rem ">
-                            <img src="/img/<?= $matchingProduct['gambar']; ?>" alt="<?= $matchingProduct['nama']; ?>" style="width: 100%; aspect-ratio: 4/3; object-fit: cover;">
-                        </div>
-                        <div class="d-flex flex-column justify-content-start align-items-start w-100 p-4">
+                    <div class="d-flex flex-row justify-content-start align-items-start border border-gray-200 w-100 px-3 my-3 py-3">
+                        <img src="/img/<?= $matchingProduct['gambar']; ?>" alt="<?= $matchingProduct['nama']; ?>" style="width: 20%; aspect-ratio: 1/1; object-fit: cover; object-position: center;">
+
+                        <div class="d-flex flex-column justify-content-start align-items-start w-100 px-4">
                             <div class="d-flex justify-content-between align-items-start w-100">
                                 <h3 class="text-lg font-semibold leading-6 text-gray-800">Order Id: <?= $o["id_pesanan"]; ?> </h3>
                                 <span class="btn btn-success">Status</span>

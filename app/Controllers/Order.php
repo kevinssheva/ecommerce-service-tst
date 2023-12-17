@@ -25,9 +25,7 @@ class Order extends BaseController
     if (!$this->validate([
       'tipe-pengiriman' => 'required',
     ])) {
-      $validation = \Config\Services::validation();
-      // dd($validation);
-      // return redirect()->to('/produk/3')->withInput()->with('validation', $validation);
+      session()->setFlashdata('validation_errors', $this->validator->getErrors());
       return redirect()->back()->withInput();
     }
 
@@ -43,6 +41,7 @@ class Order extends BaseController
       'alamat' => $this->request->getVar('alamat'),
     ]);
 
+    session()->setFlashdata('pesan', 'Pesanan berhasil dibuat');
     return redirect()->to('/orderHistory');
   }
 
