@@ -4,7 +4,7 @@ setup:
 	@make run
 	@make composer-setup
 	@make database-migrate
-	@echo Setup successful, website running on localhost:8081
+	@echo Setup successful, website running on localhost:8080
 build:
 	docker-compose build --no-cache --force-rm
 stop:
