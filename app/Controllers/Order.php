@@ -48,22 +48,57 @@ class Order extends BaseController
     return redirect()->to('/orderHistory');
   }
 
-  public function orderAPI()
+  public function getAllOrder()
   {
-    $pesanan = $this->pesananModel->findAll();
+    try {
+      $pesanan = $this->pesananModel->findAll();
 
-    foreach ($pesanan as &$p) {
-      $produkId = $p["produk_id"];
-      $p['gambarFileName'] = $this->produkModel->find($produkId)["gambar"];
+      foreach ($pesanan as &$p) {
+        $produkId = $p["produk_id"];
+        $p['gambarFileName'] = $this->produkModel->find($produkId)["gambar"];
+      }
+
+      $response = [
+        'status' => 'success',
+        'data' => $pesanan,
+      ];
+
+      return $this->response->setJSON($response);
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+
+      return $this->response->setStatusCode(500)->setJSON($response);
     }
-
-    return $this->response->setJSON($pesanan);
   }
 
-  public function orderDetailAPI($id_pesanan = 0)
+  public function getOrderById($id = 0)
   {
-    $pesanan = $this->pesananModel->find($id_pesanan);
+    try {
+      $pesanan = $this->pesananModel->find($id);
 
-    return $this->response->setJSON($pesanan);
+      if ($pesanan) {
+        $response = [
+          'status' => 'success',
+          'data' => $pesanan,
+        ];
+
+        return $this->response->setJSON($response);
+      } else {
+        $response = [
+          'status' => 'error',
+          'message' => 'Pesanan not found',
+        ];
+        return $this->response->setStatusCode(404)->setJSON($response);
+      }
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+      return $this->response->setStatusCode(500)->setJSON($response);
+    }
   }
 }

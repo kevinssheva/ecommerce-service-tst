@@ -33,15 +33,52 @@ class Produk extends BaseController
     return view('produk/order', $data);
   }
 
-  public function produkAPI()
+  public function getAllProduct()
   {
-    $produk = $this->produkModel->findAll();
-    return $this->response->setJSON($produk);
+    try {
+      $produk = $this->produkModel->findAll();
+
+      $response = [
+        'status' => 'success',
+        'data' => $produk,
+      ];
+
+      return $this->response->setJSON($response);
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+
+      return $this->response->setStatusCode(500)->setJSON($response);
+    }
   }
 
-  public function produkDetailAPI($id = 0)
+  public function getProductById($id = 0)
   {
-    $produk = $this->produkModel->find($id);
-    return $this->response->setJSON($produk);
+    try {
+      $produk = $this->produkModel->find($id);
+
+      if ($produk) {
+        $response = [
+          'status' => 'success',
+          'data' => $produk,
+        ];
+
+        return $this->response->setJSON($response);
+      } else {
+        $response = [
+          'status' => 'error',
+          'message' => 'Pesanan not found',
+        ];
+        return $this->response->setStatusCode(404)->setJSON($response);
+      }
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+      return $this->response->setStatusCode(500)->setJSON($response);
+    }
   }
 }
