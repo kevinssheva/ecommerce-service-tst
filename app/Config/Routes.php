@@ -5,16 +5,23 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index', ['filter' => 'pageFilter']);
-$routes->get('/produk/(:num)', 'Produk::order/$1', ['filter' => 'pageFilter']);
-$routes->post('/order/checkout', 'Order::checkout', ['filter' => 'pageFilter']);
-$routes->get('/login', 'Login::index', ['filter' => 'loginFilter']);
-$routes->post('/login_action', 'Login::login_action', ['filter' => 'loginFilter']);
-$routes->get('/logout', 'Login::logout', ['filter' => 'pageFilter']);
-$routes->get('/api/produk', 'Produk::produkAPI');
-$routes->get('/api/produk/(:num)', 'Produk::produkDetailAPI/$1');
-$routes->get('/api/order', 'Order::orderAPI');
-$routes->get('/api/order/(:num)', 'Order::orderDetailAPI/$1');
-$routes->get('/orderHistory', 'History::index', ['filter' => 'pageFilter']);
-$routes->get('/orderHistory/(:segment)', 'History::detail/$1', ['filter' => 'pageFilter']);
-$routes->post('/notifikasi/create', 'NotifikasiAPI::create');
+// File: app/Config/Routes.php
+
+$routes->group('/', ['filter' => 'pageFilter'], function ($routes) {
+  $routes->get('', 'Home::index');
+  $routes->get('produk/(:num)', 'Produk::order/$1');
+  $routes->post('order/checkout', 'Order::checkout');
+  $routes->get('login', 'Login::index', ['filter' => 'loginFilter']);
+  $routes->post('login_action', 'Login::login_action', ['filter' => 'loginFilter']);
+  $routes->get('logout', 'Login::logout');
+  $routes->get('orderHistory', 'History::index');
+  $routes->get('orderHistory/(:segment)', 'History::detail/$1');
+});
+
+$routes->group('api', function ($routes) {
+  $routes->get('produk', 'Produk::getAllProduct');
+  $routes->get('produk/(:num)', 'Produk::getProductById/$1');
+  $routes->get('order', 'Order::getAllOrder');
+  $routes->get('order/(:num)', 'Order::getOrderById/$1');
+  $routes->post('notifikasi/create', 'NotifikasiAPI::create');
+});

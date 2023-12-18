@@ -45,17 +45,52 @@ class Order extends BaseController
     return redirect()->to('/orderHistory');
   }
 
-  public function orderAPI()
+  public function getAllOrder()
   {
-    $pesanan = $this->pesananModel->findAll();
+    try {
+      $pesanan = $this->pesananModel->findAll();
 
-    return $this->response->setJSON($pesanan);
+      $response = [
+        'status' => 'success',
+        'data' => $pesanan,
+      ];
+
+      return $this->response->setJSON($response);
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+
+      return $this->response->setStatusCode(500)->setJSON($response);
+    }
   }
 
-  public function orderDetailAPI($id_pesanan = 0)
+  public function getOrderById($id = 0)
   {
-    $pesanan = $this->pesananModel->find($id_pesanan);
+    try {
+      $pesanan = $this->pesananModel->find($id);
 
-    return $this->response->setJSON($pesanan);
+      if ($pesanan) {
+        $response = [
+          'status' => 'success',
+          'data' => $pesanan,
+        ];
+
+        return $this->response->setJSON($response);
+      } else {
+        $response = [
+          'status' => 'error',
+          'message' => 'Pesanan not found',
+        ];
+        return $this->response->setStatusCode(404)->setJSON($response);
+      }
+    } catch (\Exception $e) {
+      $response = [
+        'status' => 'error',
+        'message' => 'An error occurred',
+      ];
+      return $this->response->setStatusCode(500)->setJSON($response);
+    }
   }
 }
