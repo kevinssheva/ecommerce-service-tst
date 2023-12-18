@@ -5,19 +5,18 @@ namespace App\Controllers;
 use App\Models\PesananModel;
 use App\Models\ProdukModel;
 
+use function PHPUnit\Framework\isEmpty;
+
 class History extends BaseController
 {
   protected $pesananModel;
   protected $produkModel;
+  protected $pengirimanList;
 
   public function __construct()
   {
     $this->pesananModel = new PesananModel();
     $this->produkModel = new ProdukModel();
-  }
-
-  public function index()
-  {
     $apiUrl = 'http://localhost:8081/api/pengiriman';
 
     $ch = curl_init($apiUrl);
@@ -28,15 +27,19 @@ class History extends BaseController
 
 
     if ($response) {
-      $pengirimanList = json_decode($response, true)['data'];
+      $this->pengirimanList = json_decode($response, true)['data'];
     } else {
-      $pengirimanList = [];
+      $this->pengirimanList = [];
+      echo 'Error fetching data!';
     }
+  }
 
-    $pesanan = $this->pesananModel->findAll();
+  public function index()
+  {
+    $pesanan = $this->pesananModel->where('user_id', session()->get('user_id'))->orderBy('created_at', 'desc')->findAll();
     // Membuat array asosiatif dari array2 berdasarkan id
     $array2Assoc = [];
-    foreach ($pengirimanList as $item2) {
+    foreach ($this->pengirimanList as $item2) {
       $array2Assoc[$item2['id_pesanan']] = $item2['status'];
     }
 
@@ -59,6 +62,15 @@ class History extends BaseController
   public function detail($id_pesanan)
   {
     $pesanan = $this->pesananModel->getHistory($id_pesanan);
+    $filteredPengiriman = array_filter($this->pengirimanList, function ($pengiriman) use ($id_pesanan) {
+      return $pengiriman['id_pesanan'] == $id_pesanan;
+    });
+
+    if (empty($filteredPengiriman)) {
+      $pesanan['status'] = 'disiapkan';
+    } else {
+      $pesanan['status'] = reset($filteredPengiriman)['status'];
+    }
 
     $data = [
       'title' => 'detail history pesanan',
