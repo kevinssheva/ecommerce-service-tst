@@ -15,7 +15,9 @@
           <h5 class="card-title fw-semibold"><?= $p['nama']; ?></h5>
           <p class="card-text text-body-tertiary"><?= $p['deskripsi']; ?></p>
           <p class="card-text fw-semibold fs-5">Rp. <?= number_format($p['harga'], 2, ',', '.');; ?></p>
-          <a href="/produk/<?= $p['id']; ?>" class="btn btn-primary">+</a>
+          <div class="card-footer text-center">
+            <a href="/produk/<?= $p['id']; ?>" class="btn btn-primary">+</a>
+          </div>
         </div>
       </div>
     <?php endforeach; ?>

@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\PesananModel;
+use App\Models\ProdukModel;
 
 class Order extends BaseController
 {
   protected $pesananModel;
+  protected $produkModel;
 
   public function __construct()
   {
     $this->pesananModel = new PesananModel();
+    $this->produkModel = new ProdukModel();
   }
 
   public function index(): string
@@ -48,6 +51,11 @@ class Order extends BaseController
   public function orderAPI()
   {
     $pesanan = $this->pesananModel->findAll();
+
+    foreach ($pesanan as &$p) {
+      $produkId = $p["produk_id"];
+      $p['gambarFileName'] = $this->produkModel->find($produkId)["gambar"];
+    }
 
     return $this->response->setJSON($pesanan);
   }
