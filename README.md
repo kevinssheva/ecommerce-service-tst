@@ -102,3 +102,33 @@
 ```bash
     php spark serve
 ```
+
+## **Akun Untuk melakukan login**
+<p align="center"> 
+<table>
+    <tr>
+        <td colspan=3 align="center">Kelompok 19</td>
+    </tr>
+    <tr>
+        <td>No.</td>
+        <td>Username</td>
+        <td>Password</td>
+    </tr>
+    <tr>
+        <td>1.</td>
+        <td>amjad</td>
+        <td>amjadjugabiargampang</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>iskandar</td>
+        <td>skandarrrr</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>jamesanderson</td>
+        <td>jamesanderson</td>
+    </tr>
+</table>
+</p>
+
