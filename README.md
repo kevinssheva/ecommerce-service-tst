@@ -1,67 +1,104 @@
-# CodeIgniter 4 Application Starter
+<div align="center">
+    <h1 align="center">
+    <span style="color: white; font-weight: bold;">TUGAS BESAR II3160 Teknolohgi Sistem Terintegrasi</span>
+    </h1>
+</div>
 
-## What is CodeIgniter?
+<div align="center">
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&random=false&width=435&lines=Kelompok+19+Kelas+01+TST" alt="Typing SVG" /></a>
+</div>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## **Author**
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+<p align="center"> 
+<table>
+    <tr>
+        <td colspan=4 align="center">Kelompok 19</td>
+    </tr>
+    <tr>
+        <td>No.</td>
+        <td>Nama</td>
+        <td>NIM</td>
+        <td>Email</td>
+    </tr>
+    <tr>
+        <td>1.</td>
+        <td>Ibnu Khairy Algifari</td>
+        <td>18221091</td>
+        <td><a href="mailto:18221091@std.stei.itb.ac.id">18221091@std.stei.itb.ac.id</a></td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>Ken Azizan</td>
+        <td>18221105</td>
+        <td><a href="mailto:18221107@std.stei.itb.ac.id">18221107@std.stei.itb.ac.id</a></td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>Lie, Kevin Sebastian S.T.</td>
+        <td>18221133</td>
+        <td><a href="mailto:18221143@std.stei.itb.ac.id">18221143@std.stei.itb.ac.id</a></td>
+    </tr>
+</table>
+</p>
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+<br>
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## **App Specification**
+<p>
+    Aplikasi ini menampilkan produk yang dapat dipesan <i>customer</i> yang kemudian dapat dilanjutkan dengan memilih layanan pengiriman dan melakukan <i>checkout</i>. Secara otomatis, pesanan akan masuk ke dalam layanan pengiriman agar dapat dilakukan pengiriman. <i>Customer</i> juga dapat melihat <i>history</i> dan status pengiriman di lama <i>history</i>
+</p>
 
-## Installation & updates
+<br>
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## **Preparation**
+1. Open terminal</br>
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+2. Clone repository ini</br>
+```bash
+    git clone https://github.com/kevinssheva/delivery-service-tst.git
+```
 
-## Setup
+3. Masuk ke local repository folder</br>
+```bash
+    cd delivery-service-tst
+```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+4. Install all dependencies dengan telah menginstall composer terlebih dahulu</br>
+```bash
+    composer update
+```
 
-## Important Change with index.php
+5. Buka xampp</br>
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+6. Jalankan Apache dan mySQL</br>
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+7. Buka VSCode jika belum</br>
 
-**Please** read the user guide for a better explanation of how CI4 works!
+8. Buka file env.example dan uncomment 7 konfigurasi terbawah</br>
 
-## Repository Management
+9. Buka phpMyAdmin</br>
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+10. Buat database baru dengan nama "ecommerce_db"
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+11. Buka terminal baru</br>
 
-## Server Requirements
+12. Migrasi data ke database</br>
+```bash
+    php spark migrate
+```
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+13. Seed data dengan melakukan</br>
+```bash
+    php spark db:seed AllSeeder
+```
+<br>
+14. Selesai
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## **How To Run**
+1. Buka terminal</br>
 
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+2. Jalankan Aplikasi</br>
+```bash
+    php spark serve
+```
