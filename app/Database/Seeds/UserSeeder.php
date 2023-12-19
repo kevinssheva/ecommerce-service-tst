@@ -28,6 +28,15 @@ class UserSeeder extends Seeder
         'created_at' => Time::now(),
         'updated_at' => Time::now(),
       ],
+      [
+        'username' => 'jamesanderson',
+        'nama' => 'James Anderson',
+        'password' => 'jamesanderson',
+        'alamat' => 'Jl. Cisitu Indah V no. 10',
+        'no_telepon' => '085246261156',
+        'created_at' => Time::now(),
+        'updated_at' => Time::now(),
+      ],
     ];
 
     // Simple Queries
